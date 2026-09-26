@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Studio Dashboard // The EyeShades Studio</title>
+  <meta name="robots" content="noindex, nofollow">
+
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="admin.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>\u270f\ufe0f</text></svg>">
+</head>
+<body class="admin-body">
+
+  <!-- ==================== LOGIN GATE ==================== -->
+  <div id="adminLoginScreen" class="admin-login-screen">
+    <div class="admin-login-card">
+      <h1>STUDIO DASHBOARD</h1>
+      <p>Private area &bull; The EyeShades Studio</p>
+      <div class="admin-login-error" id="adminLoginError"></div>
+      <input type="password" id="adminPasswordInput" class="form-input-text" placeholder="Admin password" autocomplete="off">
+      <button id="adminLoginBtn" class="btn-submit-portrait" style="padding: 0.75rem;">ENTER DASHBOARD</button>
+      <p style="margin-top: 1rem; font-size: 0.72rem; color: var(--graphite-hb);">
+        Demo-only password gate. Replace with real Spring Security before going live.
+      </p>
+    </div>
+  </div>
+
+  <!-- ==================== DASHBOARD SHELL ==================== -->
+  <div id="adminShell" class="admin-shell">
+
+    <header class="admin-topbar">
+      <div class="studio-container admin-topbar-inner">
+        <div class="admin-topbar-title">
+          THE EYESHADES STUDIO
+          <small>PRIVATE DASHBOARD &bull; ORDERS &amp; REACH</small>
+        </div>
+        <div style="display: flex; align-items: center; gap: 1rem;">
+          <button id="adminRefreshBtn" class="btn-admin-logout" title="Refresh data">&#8635; REFRESH</button>
+          <button id="adminLogoutBtn" class="btn-admin-logout">LOG OUT</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="admin-main">
+      <div class="studio-container">
+
+        <!-- Visitor / reach stats -->
+        <h2 class="admin-section-title">SITE REACH</h2>
+        <div class="admin-stats-grid">
+          <div class="admin-stat-card">
+            <div class="admin-stat-label">Total Site Visits</div>
+            <div class="admin-stat-value" id="statTotalVisits">0</div>
+          </div>
+          <div class="admin-stat-card">
+            <div class="admin-stat-label">Visits Today</div>
+            <div class="admin-stat-value" id="statTodayVisits">0</div>
+          </div>
+          <div class="admin-stat-card">
+            <div class="admin-stat-label">Total Orders</div>
+            <div class="admin-stat-value" id="statTotalOrders">0</div>
+          </div>
+          <div class="admin-stat-card">
+            <div class="admin-stat-label">Awaiting Review</div>
+            <div class="admin-stat-value" id="statPendingOrders">0</div>
+          </div>
+        </div>
+
+        <div class="admin-visits-chart">
+          <div class="admin-stat-label">LAST 7 DAYS</div>
+          <div class="visits-bars-row" id="visitsBarsRow"></div>
+        </div>
+
+        <!-- Orders -->
+        <h2 class="admin-section-title">
+          <span>COMMISSION ORDERS</span>
+        </h2>
+
+        <div class="admin-filter-row" id="adminFilterRow">
+          <button class="admin-filter-btn active" data-filter="All">All</button>
+          <button class="admin-filter-btn" data-filter="Pending Review">Pending Review</button>
+          <button class="admin-filter-btn" data-filter="Accepted">Accepted</button>
+          <button class="admin-filter-btn" data-filter="In Progress">In Progress</button>
+          <button class="admin-filter-btn" data-filter="Completed">Completed</button>
+          <button class="admin-filter-btn" data-filter="Rejected">Rejected</button>
+        </div>
+
+        <div class="admin-orders-list" id="adminOrdersList">
+          <!-- Populated by admin.js -->
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <div id="toastContainer" class="toast-container"></div>
+
+  <script src="api.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>
