@@ -146,19 +146,4 @@ Once started:
    java -jar target/eyeshades-backend-1.0.0.jar --spring.profiles.active=prod
    ```
 
----
-
-## 🌐 How to Deploy for Free
-
-### Deploying to Render / Railway / Fly.io:
-1. Push your repository to GitHub.
-2. Link your repository to **Render** (as a Web Service) or **Railway**.
-3. Set:
-   - **Build Command**: `mvn clean package -DskipTests`
-   - **Start Command**: `java -jar target/eyeshades-backend-1.0.0.jar`
-   - **Environment Variables**:
-     - `SPRING_PROFILES_ACTIVE`: `prod`
-     - `DB_URL`: `jdbc:postgresql://your-supabase-db-url:5432/postgres`
-     - `DB_USERNAME`: `postgres`
-     - `DB_PASSWORD`: `your-password`
-4. Render / Railway will automatically compile your Java code, connect to your Supabase PostgreSQL database, and provide a live public HTTPS URL (e.g. `https://eyeshades-studio.onrender.com`).
+ will automatically compile your Java code, connect to your Supabase PostgreSQL database, and provide a live public HTTPS URL (e.g. `https://eyeshades-studio.onrender.com`).
